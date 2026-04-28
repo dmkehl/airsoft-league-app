@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { AppSidebar } from "@/components/layout/app-sidebar";
-import { DashboardHeader } from "@/components/layout/dashboard-header";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { SiteHeader } from "@/components/layout/site-header";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,19 +31,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en">
       <body className={inter.className}>
-        <div className="flex min-h-screen">
-          <AppSidebar />
+        <TooltipProvider>
+          <SidebarProvider>
+            <AppSidebar />
 
-          <div className="flex min-h-screen flex-1 flex-col">
-            <DashboardHeader />
-            {children}
-          </div>
-        </div>
+            <SidebarInset>
+              <SiteHeader />
+              {children}
+            </SidebarInset>
+          </SidebarProvider>
+        </TooltipProvider>
       </body>
     </html>
   );
