@@ -1,33 +1,189 @@
-import Link from "next/link";
+"use client";
 
-const navItems = [
-  { label: "Dashboard", href: "/dashboard" },
-  { label: "Teams", href: "/teams" },
-  { label: "Matches", href: "/matches" },
-  { label: "Standings", href: "/standings" },
-  { label: "Seasons", href: "/seasons" },
-  { label: "Settings", href: "/settings" },
-];
+import * as React from "react";
+import {
+  IconCamera,
+  IconChartBar,
+  IconDashboard,
+  IconDatabase,
+  IconFileAi,
+  IconFileDescription,
+  IconFileWord,
+  IconFolder,
+  IconHelp,
+  IconInnerShadowTop,
+  IconListDetails,
+  IconReport,
+  IconSearch,
+  IconSettings,
+  IconUsers,
+} from "@tabler/icons-react";
 
-export function AppSidebar() {
+import { NavDocuments } from "@/components/layout/nav-documents";
+import { NavMain } from "@/components/layout/nav-main";
+import { NavSecondary } from "@/components/layout/nav-secondary";
+import { NavUser } from "@/components/layout/nav-user";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+
+const data = {
+  user: {
+    name: "David Kehl",
+    email: "davidmkehl@outlook.com",
+    avatar: "/avatars/shadcn.jpg",
+  },
+
+  navMain: [
+    {
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: IconDashboard,
+    },
+    {
+      title: "Teams",
+      url: "/teams",
+      icon: IconUsers,
+    },
+    {
+      title: "Matches",
+      url: "/matches",
+      icon: IconListDetails,
+    },
+    {
+      title: "Standings",
+      url: "/standings",
+      icon: IconChartBar,
+    },
+    {
+      title: "Seasons",
+      url: "/seasons",
+      icon: IconFolder,
+    },
+  ],
+
+  navSecondary: [
+    {
+      title: "Settings",
+      url: "/settings",
+      icon: IconSettings,
+    },
+    {
+      title: "Get Help",
+      url: "#",
+      icon: IconHelp,
+    },
+    {
+      title: "Search",
+      url: "#",
+      icon: IconSearch,
+    },
+  ],
+
+  /*
+  // Original shadcn block sections kept for future reference
+
+  navClouds: [
+    {
+      title: "Capture",
+      icon: IconCamera,
+      isActive: true,
+      url: "#",
+      items: [
+        {
+          title: "Active Proposals",
+          url: "#",
+        },
+        {
+          title: "Archived",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Proposal",
+      icon: IconFileDescription,
+      url: "#",
+      items: [
+        {
+          title: "Active Proposals",
+          url: "#",
+        },
+        {
+          title: "Archived",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Prompts",
+      icon: IconFileAi,
+      url: "#",
+      items: [
+        {
+          title: "Active Proposals",
+          url: "#",
+        },
+        {
+          title: "Archived",
+          url: "#",
+        },
+      ],
+    },
+  ],
+
+  documents: [
+    {
+      name: "Data Library",
+      url: "#",
+      icon: IconDatabase,
+    },
+    {
+      name: "Reports",
+      url: "#",
+      icon: IconReport,
+    },
+    {
+      name: "Word Assistant",
+      url: "#",
+      icon: IconFileWord,
+    },
+  ],
+  */
+};
+
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <aside className="hidden min-h-screen w-64 border-r bg-muted/30 p-6 md:block">
-      <div className="mb-8">
-        <h2 className="text-lg font-bold">Airsoft League</h2>
-        <p className="text-sm text-muted-foreground">Admin Panel</p>
-      </div>
-
-      <nav className="flex flex-col gap-2">
-        {navItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
-          >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
-    </aside>
+    <Sidebar collapsible="offcanvas" {...props}>
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              className="data-[slot=sidebar-menu-button]:p-1.5!"
+            >
+              <a href="/dashboard">
+                <IconInnerShadowTop className="size-5!" />
+                <span className="text-base font-semibold">Airsoft League</span>
+              </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
+      <SidebarContent>
+        <NavMain items={data.navMain} />
+        {/* <NavDocuments items={data.documents} /> */}
+        <NavSecondary items={data.navSecondary} className="mt-auto" />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={data.user} />
+      </SidebarFooter>
+    </Sidebar>
   );
 }
