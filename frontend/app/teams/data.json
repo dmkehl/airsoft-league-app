@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "teamName": "Reapers",
+    "division": "5-Man",
+    "captain": "Logan Miller",
+    "players": 5,
+    "wins": 4,
+    "losses": 1,
+    "points": 12,
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "teamName": "Ghost Squad",
+    "division": "3-Man",
+    "captain": "Ethan Brooks",
+    "players": 3,
+    "wins": 3,
+    "losses": 2,
+    "points": 9,
+    "status": "Active"
+  },
+  {
+    "id": 3,
+    "teamName": "Blackout",
+    "division": "5-Man",
+    "captain": "Mason Carter",
+    "players": 5,
+    "wins": 2,
+    "losses": 3,
+    "points": 6,
+    "status": "Active"
+  },
+  {
+    "id": 4,
+    "teamName": "Iron Wolves",
+    "division": "Solo",
+    "captain": "Noah Bennett",
+    "players": 1,
+    "wins": 5,
+    "losses": 0,
+    "points": 15,
+    "status": "Active"
+  },
+  {
+    "id": 5,
+    "teamName": "Havoc",
+    "division": "3-Man",
+    "captain": "Caleb Turner",
+    "players": 2,
+    "wins": 1,
+    "losses": 4,
+    "points": 3,
+    "status": "Needs Players"
+  },
+  {
+    "id": 6,
+    "teamName": "Night Raiders",
+    "division": "5-Man",
+    "captain": "Ryan Cooper",
+    "players": 4,
+    "wins": 2,
+    "losses": 2,
+    "points": 6,
+    "status": "Needs Players"
+  },
+  {
+    "id": 7,
+    "teamName": "Phantom Ops",
+    "division": "3-Man",
+    "captain": "Dylan Scott",
+    "players": 3,
+    "wins": 4,
+    "losses": 1,
+    "points": 12,
+    "status": "Active"
+  },
+  {
+    "id": 8,
+    "teamName": "Lone Wolf",
+    "division": "Solo",
+    "captain": "Chris Evans",
+    "players": 1,
+    "wins": 3,
+    "losses": 2,
+    "points": 9,
+    "status": "Active"
+  }
+]
